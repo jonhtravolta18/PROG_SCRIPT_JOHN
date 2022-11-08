@@ -1,0 +1,72 @@
+#######################################################################
+# NOME = JOÃO ALEXANDRE A. DE SA
+# MATRICULA = 12211EAU020
+# TRABALHO = ps-04-street-figther
+#######################################################################
+def vitoria_ken(): #criando função para quando a vitória for do KEN
+    print("LUTADOR VENCEDOR: KEN")  #nome do vencedor
+    print(f"GOLPES RYU = {GOLPES_RYU}") #qntd de golpes do ryu
+    print(f"GOLPES KEN = {GOLPES_KEN}") #qntd de golpes do ken
+def vitoria_ryu():
+    print("LUTADOR VENCEDOR: RYU")
+    print(f"GOLPES RYU = {GOLPES_RYU}") 
+    print(f"GOLPES KEN = {GOLPES_KEN}")   
+def main(): #criando função principal
+
+    ##########################################################################
+    #declarando que as variaveis a seguir poderão ser usadas fora dessa função
+    global HP_RYU 
+    global GOLPES_RYU 
+    global HP_KEN 
+    global GOLPES_KEN
+    ########################################################################## 
+    
+    #######################
+    #input do hp do lutador 
+    HP_RYU = int(input()) 
+    HP_KEN = int(input())
+    #######################
+
+    ########################################
+    #informando quantidade inicial de golpes
+    GOLPES_RYU = 0 
+    GOLPES_KEN = 0
+    ########################################
+    
+    while (HP_RYU>0 and HP_KEN>0): #criando laço de acordo com o hp dos lutadores
+        VALOR_ATAQUE = int(input()) #input do valor de ataque (repete até a condição do while ser aceita)
+        if VALOR_ATAQUE>0:
+            #nesse IF, caso o ataque tenha valor maior que 0, o ryu atacará, realizando um print da na tela
+            print(f"RYU APLICOU UM GOLPE: {abs(VALOR_ATAQUE)}")
+            #diminuindo a vida do ken a partir da subtração do valor absoluto do ataque
+            HP_KEN -= abs(VALOR_ATAQUE)
+            #após isso já verifico se o hp vai ficar um valor negativo, alterando-o, caso sim, para 0.
+            if HP_KEN<=0:
+                HP_KEN=0
+            #termino printando o valor do hp de ambos os jogadores e adicionando 1 ao número de golpes
+            #realizados pelo ryu
+            print(f"HP RYU = {HP_RYU}")
+            print(f"HP KEN = {HP_KEN}")
+            GOLPES_RYU += 1
+        
+        elif VALOR_ATAQUE<0:
+            #nesse ELIF, caso o ataque tenha valor menor que 0, o ken atacará, realizando um print da na tela
+            print(f"KEN APLICOU UM GOLPE: {abs(VALOR_ATAQUE)}")
+            #diminuindo a vida do ryu a partir da subtração do valor absoluto do ataque
+            HP_RYU -= abs(VALOR_ATAQUE)
+            if HP_RYU<=0:
+                HP_RYU=0
+            #termino printando o valor do hp de ambos os jogadores e adicionando 1 ao número de golpes
+            #realizados pelo ken
+            print(f"HP RYU = {HP_RYU}")
+            print(f"HP KEN = {HP_KEN}")
+            GOLPES_KEN += 1
+    else: #quando a condição do while for aceita, ele verificará quem foi o jogador que ganhou e
+          #chamará a função da vitória de acordo com o lutador correspondente
+        if HP_RYU==0:
+            vitoria_ken()
+        elif HP_KEN==0:
+            vitoria_ryu()
+################################################
+
+main()
