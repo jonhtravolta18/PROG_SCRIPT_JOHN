@@ -3,25 +3,19 @@
 # MATRICULA = 12211EAU020
 # TRABALHO = ps-04-street-figther
 #######################################################################
-def vitoria_ken(): #criando função para quando a vitória for do KEN
-    print("LUTADOR VENCEDOR: KEN")  #nome do vencedor
-    print(f"GOLPES RYU = {GOLPES_RYU}") #qntd de golpes do ryu
-    print(f"GOLPES KEN = {GOLPES_KEN}") #qntd de golpes do ken
-def vitoria_ryu():
-    print("LUTADOR VENCEDOR: RYU")
-    print(f"GOLPES RYU = {GOLPES_RYU}") 
-    print(f"GOLPES KEN = {GOLPES_KEN}")   
-def main(): #criando função principal
 
-    ##########################################################################
-    #declarando que as variaveis a seguir poderão ser usadas fora dessa função
-    global HP_RYU 
-    global GOLPES_RYU 
-    global HP_KEN 
-    global GOLPES_KEN
-    ########################################################################## 
-    
-    #######################
+#criando 2 funções de acordo com a vitoria de cada lutador, Ken ou Ryu.
+def vitoria_ken(g_ryu, g_ken): 
+    print("LUTADOR VENCEDOR: KEN")  #nome do vencedor
+    print(f"GOLPES RYU = {g_ryu}") #qntd de golpes do ryu
+    print(f"GOLPES KEN = {g_ken}") #qntd de golpes do ken
+def vitoria_ryu(g_ryu, g_ken):
+    print("LUTADOR VENCEDOR: RYU")
+    print(f"GOLPES RYU = {g_ryu}") 
+    print(f"GOLPES KEN = {g_ken}")
+
+#criando função principal  
+def main(): 
     #input do hp do lutador 
     HP_RYU = int(input()) 
     HP_KEN = int(input())
@@ -64,9 +58,11 @@ def main(): #criando função principal
     else: #quando a condição do while for aceita, ele verificará quem foi o jogador que ganhou e
           #chamará a função da vitória de acordo com o lutador correspondente
         if HP_RYU==0:
-            vitoria_ken()
+            vitoria_ken(GOLPES_RYU, GOLPES_KEN)
         elif HP_KEN==0:
-            vitoria_ryu()
-################################################
+            vitoria_ryu(GOLPES_RYU, GOLPES_KEN)
 
+
+
+#chamando função principal
 main()
