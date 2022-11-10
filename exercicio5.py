@@ -31,9 +31,9 @@ def main():
         VALOR_ATAQUE = int(input()) #input do valor de ataque (repete até a condição do while ser aceita)
         if VALOR_ATAQUE>0:
             #nesse IF, caso o ataque tenha valor maior que 0, o ryu atacará, realizando um print da na tela
-            print(f"RYU APLICOU UM GOLPE: {abs(VALOR_ATAQUE)}")
+            print(f"RYU APLICOU UM GOLPE: {(VALOR_ATAQUE*-1)}")
             #diminuindo a vida do ken a partir da subtração do valor absoluto do ataque
-            HP_KEN -= abs(VALOR_ATAQUE)
+            HP_KEN -= (VALOR_ATAQUE*-1)
             #após isso já verifico se o hp vai ficar um valor negativo, alterando-o, caso sim, para 0.
             if HP_KEN<=0:
                 HP_KEN=0
@@ -45,9 +45,9 @@ def main():
         
         elif VALOR_ATAQUE<0:
             #nesse ELIF, caso o ataque tenha valor menor que 0, o ken atacará, realizando um print da na tela
-            print(f"KEN APLICOU UM GOLPE: {abs(VALOR_ATAQUE)}")
+            print(f"KEN APLICOU UM GOLPE: {(VALOR_ATAQUE*-1)}")
             #diminuindo a vida do ryu a partir da subtração do valor absoluto do ataque
-            HP_RYU -= abs(VALOR_ATAQUE)
+            HP_RYU -= (VALOR_ATAQUE*-1)
             if HP_RYU<=0:
                 HP_RYU=0
             #termino printando o valor do hp de ambos os jogadores e adicionando 1 ao número de golpes
