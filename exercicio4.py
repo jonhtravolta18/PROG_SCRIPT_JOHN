@@ -56,3 +56,4 @@ print("Bruto: R$", format(salario_bruto, ".2f").replace(".", ","))
 print("INSS: R$", format(desconto_inss, ".2f").replace(".", ","))
 print("IR: R$", format(desconto_ir, ".2f").replace(".", ","))
 print("Liquido: R$", format(salario_liquido, ".2f").replace(".", ","))
+
