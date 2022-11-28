@@ -3,18 +3,6 @@
 # MATRICULA = 12211EAU020
 # TRABALHO = ps-07-plataforma
 #############################################################################################################
-# def calcs(pos_plat, pos_passadas, pos_atual, ):
-#     pos_passadas = [pos_inicial]
-#     if pos_plat[pos_atual]<0:
-#         pos_passadas.append( (pos_atual) - (pos_plat[pos_atual] * -1) +1)
-#         pos_atual = (pos_atual) - (pos_plat[pos_atual] * -1)
-        
-#     elif pos_plat[pos_atual]>0:
-#         pos_passadas.append( (pos_atual) + (pos_plat[pos_atual]) +1)
-#         pos_atual = (pos_atual) + (pos_plat[pos_atual])
-#     return pos_atual
-    
-
 
 def main():
     pos_plat = [int(i) for i in input().split()]
@@ -43,12 +31,6 @@ def main():
             elif pos_plat[pos_atual]>0:
                 pos_passadas.append( (pos_atual) + (pos_plat[pos_atual]) +1)
                 pos_atual = (pos_atual) + (pos_plat[pos_atual])
-    
-
-
-
-
-
 
     valores_print = []
     for p in pos_passadas:
