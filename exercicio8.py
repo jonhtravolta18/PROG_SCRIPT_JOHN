@@ -7,8 +7,11 @@ def ATRIB_VALORES():#função para input dos valores da plataforma; posição in
     plataforma = [int(i) for i in input().split()]; posicao_inicial = int(input())
     posicoes_anteriores = [posicao_inicial]; posicao_atual = posicao_inicial - 1 #lista para anotar as posiçoes passadas e atual
     return plataforma, posicao_inicial, posicoes_anteriores, posicao_atual #return de todos os valores
-def FINALIZACAO(POSICOES_ANT,POSICOES_PLAT):          
-    for valor in POSICOES_ANT: print(valor) #"for" feito para printar cada item dessa lista
+def FINALIZACAO(POSICOES_ANT,POSICOES_PLAT):
+    valores_print = [] #lista para armazenar apenas valores para o print
+    for p in POSICOES_ANT: #colocar nessa lista apenas valores novos, sem repetir.
+        if p not in valores_print and p>=0 and p<=len(POSICOES_PLAT): valores_print.append(p)            
+    for valor in valores_print: print(valor) #for feito para printar cada item dessa lista com valores sem repetição
     if POSICOES_ANT[-1]<1: print("esquerda") #caso personagem saia pela esquerda
     elif POSICOES_ANT[-1]>len(POSICOES_PLAT): print("direita") #caso personagem saia pela direita     
     else: print("loop") #ou caso entre em loop      
