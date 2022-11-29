@@ -3,40 +3,38 @@
 # MATRICULA = 12211EAU020
 # TRABALHO = ps-07-plataforma
 #############################################################################################################
+def ATRIB_VALORES():
+    plataforma = [int(i) for i in input().split()]
+    posicao_inicial = int(input())
+    posicoes_anteriores = [posicao_inicial]
+    posicao_atual = posicao_inicial - 1
+    return plataforma, posicao_inicial, posicoes_anteriores, posicao_atual
 
-def main():
-    pos_plat = [int(i) for i in input().split()]
-    pos_inicial = int(input())
-    pos_passadas = [pos_inicial]
-    pos_atual  = pos_inicial-1
-
-    while pos_passadas[-1]>=1 and pos_passadas[-1]<=len(pos_plat):  
-        if pos_plat[pos_atual]<0:
-            if (pos_atual) - (pos_plat[pos_atual] * -1) +1 in pos_passadas:
-                break
-            else:
-                pos_passadas.append( (pos_atual) - (pos_plat[pos_atual] * -1) +1)
-                pos_atual = (pos_atual) - (pos_plat[pos_atual] * -1)
-        
-        elif (pos_plat[pos_atual]>=0):
-            if (pos_atual) + (pos_plat[pos_atual]) +1 in pos_passadas:
-                break
-            else:
-                pos_passadas.append( (pos_atual) + (pos_plat[pos_atual]) +1)
-                pos_atual = (pos_atual) + (pos_plat[pos_atual])
-
+def FINALIZACAO(POSICOES_ANT,POSICOES_PLAT):
     valores_print = []
-    for p in pos_passadas:
-        if p not in valores_print and p>=0 and p<=len(pos_plat):
+    for p in POSICOES_ANT:
+        if p not in valores_print and p>=0 and p<=len(POSICOES_PLAT):
             valores_print.append(p)
     for valor in valores_print:
         print(valor)
     
-    if pos_passadas[-1]<1:
+    if POSICOES_ANT[-1]<1:
         print("esquerda")
-    elif pos_passadas[-1]>len(pos_plat):
+    elif POSICOES_ANT[-1]>len(POSICOES_PLAT):
         print("direita")
     else:
         print("loop")
+
+def main():
+    POSICOES_PLAT, POS_INICIAL, POSICOES_ANT, POS_ATUAL = ATRIB_VALORES()
+
+    while 1<=POSICOES_ANT[-1]<=len(POSICOES_PLAT):  
+        if (POS_ATUAL) + (POSICOES_PLAT[POS_ATUAL]) +1 in POSICOES_ANT:
+            break
+        else:
+            POSICOES_ANT.append( (POS_ATUAL) + (POSICOES_PLAT[POS_ATUAL]) +1)
+            POS_ATUAL = (POS_ATUAL) + (POSICOES_PLAT[POS_ATUAL])
+       
+    FINALIZACAO(POSICOES_ANT,POSICOES_PLAT)
 
 main()
