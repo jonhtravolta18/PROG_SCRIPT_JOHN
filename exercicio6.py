@@ -4,27 +4,17 @@
 # TRABALHO = ps-05-super-sete
 #############################################################################################################
 #####################- DEFININDO ALGUMAS FUNÇÕES AUXILIARES -################################################
-
 def PRINT_HOME(A, B, C, D): #print das strings necessárias para o começo do programa.
-	print(f"Primeira: {A}") 
-	print(f"Terceira: {B}")
-	print(f"Quarta: {C}")
-	print(f"Sexta: {D}")
-	print(f"Lista de apostas:")
+	print(f"Primeira: {A}"); print(f"Terceira: {B}"); print(f"Quarta: {C}"); print(f"Sexta: {D}"); print(f"Lista de apostas:") 
 #############################################################################################################
 def VERIFY_CONDITION(A): #verifica se a variável A é multipla de 7 e/ou 13, retornando True apenas se não for.
-    if (A%7!=0 and A%13!=0):
-        return True
-    else:
-        return False
+    if (A%7!=0 and A%13!=0): return True
 #############################################################################################################
 def REQUEST_INPUT(): #retorna um input de valor inteiro.
-    ENTRADA = int(input())
-    return ENTRADA
+    ENTRADA = int(input()); return ENTRADA
 #############################################################################################################
 def INCREMENTO(A): #incrementa em 1 o valor da variavel A.
-    A += 1
-    return A
+    A += 1; return A
 #####################- DEFININDO FUNÇÃO PRINCIPAL -##########################################################    
 def main():
     #atribuo os valores digitados pelo usuário em sua variavel correspondente.
@@ -35,12 +25,10 @@ def main():
     I = 0
     #ENQUANTO A SOMA DO "PRIMEIRO" COM O INCREMENTO "I" FOR MENOR QUE O "TERCEIRO".
     while ((PRIMEIRO+I) <= (TERCEIRO)): 
-        SEGUNDO = (PRIMEIRO + I)
-        J = 0
+        SEGUNDO, J = (PRIMEIRO + I), 0
         #ENQUANTO A SOMA DO "QUARTO" COM O INCREMENTO "J" FOR MENOR QUE O "SEXTO".
         while ((QUARTO+J) <= (SEXTO)):
-            QUINTO = (QUARTO + J)
-            K = 0
+            QUINTO, K = (QUARTO + J), 0
             #ENQUANTO A SOMA DO "SEXTO" COM O INCREMENTO "K" FOR MENOR QUE "9".
             while ((SEXTO+K) <= (9)):
                 SETIMO = (SEXTO + K)

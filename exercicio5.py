@@ -26,20 +26,18 @@ def VerifyLifeNeg(HP_X): #criando uma função especifica para o código, que ve
         return False #e FALSE caso seja positivo
 
 def PrintHPS(RyuLife, KenLife): #outra função especifica focada somente em printar o HP dos lutadores
-    print(f"HP RYU = {RyuLife}")
-    print(f"HP KEN = {KenLife}")
+    print(f"HP RYU = {RyuLife}"); print(f"HP KEN = {KenLife}")
 
 def Incremento(x): #função genérica construida para incrementar em 1 o parametro fornecido e depois retornar ele
-    x += 1
-    return x
+    x += 1; return x
+    
 
 def main(): #criando função principal
     #informando quantidade inicial de golpes
-    GOLPES_RYU = 0 
-    GOLPES_KEN = 0 
+    GOLPES_RYU, GOLPES_KEN = 0, 0
     #input do hp do lutador 
-    HP_RYU = int(input()) 
-    HP_KEN = int(input())
+    HP_RYU, HP_KEN = int(input()), int(input()) 
+
 
     while (HP_RYU>0 and HP_KEN>0): #criando laço de acordo com o hp dos lutadores
         VALOR_ATAQUE = int(input()) #input do valor de ataque (repete até a condição do while ser aceita)
@@ -49,8 +47,7 @@ def main(): #criando função principal
     #chamo a função e o retorno dela vai ser atribuido a vida do KEN
             HP_KEN = SubtraiXdeY(HP_KEN, VALOR_ATAQUE)
     #chamo a função que retornará TRUE caso o hp seja negativo e depois atribuo 0 ao hp do ken, outrem, nada acontece
-            if VerifyLifeNeg(HP_KEN):
-                HP_KEN=0
+            if VerifyLifeNeg(HP_KEN): HP_KEN=0
     #chamo a função que irá printar o hp dos lutadores
             PrintHPS(HP_RYU, HP_KEN)
     #chamo a função que irá incrementar o valor dos golpes de ryu e já atribuir à variavel golpes
@@ -62,17 +59,14 @@ def main(): #criando função principal
     #chamo a função e o retorno dela vai ser atribuido a vida do RYU
             HP_RYU = SubtraiXdeY(HP_RYU, VALOR_ATAQUE)
     #chamo a função que retornará TRUE caso o hp seja negativo e depois atribuo 0 ao hp do ryu, outrem, nada acontece
-            if VerifyLifeNeg(HP_RYU):
-                HP_RYU=0
+            if VerifyLifeNeg(HP_RYU): HP_RYU=0
     #chamo a função que irá printar o hp dos lutadores
             PrintHPS(HP_RYU, HP_KEN)
     #chamo a função que irá incrementar o valor dos golpes de ryu e já atribuir à variavel golpes
             GOLPES_KEN = Incremento(GOLPES_KEN)
     else: #quando a condição do while não for mais válida, ele verificará qual foi o ganhador e 
           #chamará a função da vitória de acordo com o lutador correspondente
-        if HP_RYU==0:
-            KenVitory(GOLPES_RYU, GOLPES_KEN)
-        elif HP_KEN==0:
-            RyuVitory(GOLPES_RYU, GOLPES_KEN)
+        if HP_RYU==0: KenVitory(GOLPES_RYU, GOLPES_KEN)
+        elif HP_KEN==0: RyuVitory(GOLPES_RYU, GOLPES_KEN)
 ################################################
 main()
