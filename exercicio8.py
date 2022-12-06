@@ -16,7 +16,7 @@ def FINALIZACAO(POSICOES_ANT,POSICOES_PLAT):
     elif POSICOES_ANT[-1]>len(POSICOES_PLAT): print("direita") #caso personagem saia pela direita     
     else: print("loop") #ou caso entre em loop      
 def main(): 
-    POSICOES_PLAT, POS_INICIAL, POSICOES_ANT, POS_ATUAL = ATRIB_VALORES() #Retorno o valor para cada variavel adequada
+    POSICOES_PLAT, POSICOES_ANT, POS_ATUAL = ATRIB_VALORES() #Retorno o valor para cada variavel adequada
     while 1<=POSICOES_ANT[-1]<=len(POSICOES_PLAT):  #enquanto o ultimo valor das posicoes passadas estiver dentro dos limites
         if (POS_ATUAL) + (POSICOES_PLAT[POS_ATUAL]) +1 in POSICOES_ANT: break #encerrar caso tente adicionar um valor repetido         
         else: #acrescentar na lista de variaveis passadas o valor da nova posição
